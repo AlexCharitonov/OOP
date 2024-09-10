@@ -38,12 +38,12 @@ public class Heap {
         int idOfBiggestValueInFamily = vertex;
         int idOfLeftChild = 2 * vertex + 1;
         int idOfRightChild = 2 * vertex + 2;
-        if (idOfLeftChild < currentLengthOfArray &&
-                array[idOfLeftChild] > array[idOfBiggestValueInFamily]) {
+        if (idOfLeftChild < currentLengthOfArray
+                && array[idOfLeftChild] > array[idOfBiggestValueInFamily]) {
             idOfBiggestValueInFamily = idOfLeftChild;
         }
-        if (idOfRightChild < currentLengthOfArray &&
-                array[idOfRightChild] > array[idOfBiggestValueInFamily]) {
+        if (idOfRightChild < currentLengthOfArray
+                && array[idOfRightChild] > array[idOfBiggestValueInFamily]) {
             idOfBiggestValueInFamily = idOfRightChild;
         }
         if (idOfBiggestValueInFamily != vertex) {
