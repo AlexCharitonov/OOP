@@ -1,7 +1,7 @@
 package org.example;
 
 /**
- * class for heap sorting
+ * class for heap sorting.
  */
 public class Heap {
 
