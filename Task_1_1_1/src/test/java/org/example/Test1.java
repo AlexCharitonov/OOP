@@ -1,8 +1,10 @@
 package org.example;
 
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.Random;
+
 import java.util.Arrays;
+
+import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +26,7 @@ public class Test1 {
     }
 
     @Test
-    void BigTestWithNegative() {
+    void bigTestWithNegative() {
         Random rand = new Random();
         int n1 = 1000;
         int[] array = new int[n1];
@@ -72,9 +74,10 @@ public class Test1 {
         long duration3 = finishTime - startTime;
         System.out.println("Массив из 10000000 элементов, прошло времени, мс: " + duration3);
         double epsilon = 0.1;
-        boolean isEqual1 = Math.abs((Math.log(length1) * length1) /
-                (Math.log(length2) * length2) - duration1 / duration2) <= epsilon;
-        boolean isEqual2 = Math.abs((Math.log(length2) * length2) /
-                (Math.log(length3) * length3) - duration2 / duration3) <= epsilon;
-        assert isEqual2 && isEqual1;}
+        boolean isEqual1 = Math.abs((Math.log(length1) * length1)
+                / (Math.log(length2) * length2) - duration1 / duration2) <= epsilon;
+        boolean isEqual2 = Math.abs((Math.log(length2) * length2)
+                / (Math.log(length3) * length3) - duration2 / duration3) <= epsilon;
+        assert isEqual2 && isEqual1;
+    }
 }
