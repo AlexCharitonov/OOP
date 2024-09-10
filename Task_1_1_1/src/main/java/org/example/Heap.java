@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Arrays;
+
 /**
  * class for heap sorting.
  */
@@ -11,14 +13,15 @@ public class Heap {
      * @return array
      */
     public static int[] heapsort(int[] array) {
-        buildHeap(array);
-        for (int i = array.length - 1; i > 0; i--) {
-            int help = array[i];
-            array[i] = array[0];
-            array[0] = help;
-            heapSiftDown(array, i, 0);
+        int[] helperArray = Arrays.copyOf(array, array.length);
+        buildHeap(helperArray);
+        for (int i = helperArray.length - 1; i > 0; i--) {
+            int help = helperArray[i];
+            helperArray[i] = helperArray[0];
+            helperArray[0] = help;
+            heapSiftDown(helperArray, i, 0);
         }
-        return array;
+        return helperArray;
     }
 
     /**
