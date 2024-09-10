@@ -23,14 +23,18 @@ public class Test1 {
 
     @Test
     void main1() {
-        int[] arr = Heap.heapsort(new int[] {10892, 345, 670, 8, 0, 234, 43, 555, 123444, 999999});        int[] trueArr = {0, 8, 43, 234, 345, 555, 670, 10892, 123444, 999999};
+        int[] arr = Heap.heapsort(new int[]
+                {10892, 345, 670, 8, 0, 234, 43, 555, 123444, 999999});
+        int[] trueArr = {0, 8, 43, 234, 345, 555, 670, 10892, 123444, 999999};
         for (int i = 0; i < trueArr.length; i++) {
             assertEquals(trueArr[i], arr[i]);
         }
     }
+    
     @Test
     void main2() {
-        int[] arr = Heap.heapsort(new int[] {-100, -1324, -600, -300, 0, 100, 1324, 600, 300, 0, 700, -700});
+        int[] arr = Heap.heapsort(new int[]
+                {-100, -1324, -600, -300, 0, 100, 1324, 600, 300, 0, 700, -700});
         int[] trueArr = {-1324, -700, -600, -300, -100, 0, 0, 100, 300, 600, 700, 1324};
         for (int i = 0; i < trueArr.length; i++) {
             assertEquals(trueArr[i], arr[i]);
