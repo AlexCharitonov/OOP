@@ -1,6 +1,6 @@
-javac -d bin ./src/main/java/org/example/Heap.java ./src/main/java/org/example/Main.java
+cd C:/Users/KAI/Documents/GitHub/OOP/Task_1_1_1
 "C:\Program Files\Java\jdk-22\bin\javadoc.exe" -d doc ./src/main/java/org/example/Heap.java ./src/main/java/org/example/Main.java
-cd ./bin
-"C:\Program Files\Java\jdk-22\bin\jar.exe" cvf /org/example/heap.jar /org/example/Main.class /org/example/Heap.class
-"C:\Program Files\Java\jdk-22\bin\jar.exe" --create --file heap.jar --main-class=org/example/Main Main.class Heap.class
-java org/example/Main org/example/Heap
+cd ./src/main/java
+javac -d jar_dir org/example/Main.java org/example/Heap.java
+"C:\Program Files\Java\jdk-22\bin\jar.exe" --create --file jar_dir/Heap.jar --main-class=org/example/Main -C ./jar_dir/ .
+java -jar jar_dir/Heap.jar
