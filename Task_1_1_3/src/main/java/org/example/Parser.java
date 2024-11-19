@@ -113,6 +113,7 @@ public class Parser {
 
     /**
      * Функция для создания выражения по операции и двум выражениям.
+     * Если переданна некорректная операция выкидывает исключение.
      */
     private static Expression getExprByOp(String op, Expression expr1, Expression expr2) {
         try {

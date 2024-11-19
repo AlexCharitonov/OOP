@@ -45,7 +45,7 @@ public class Number extends Expression {
     /**
      * Функция для проверки наличия переменных в выражение.
      */
-    public boolean hasVars() {
+    public boolean hasVariables() {
         return false;
     }
 

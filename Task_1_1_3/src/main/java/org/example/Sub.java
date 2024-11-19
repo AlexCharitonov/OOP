@@ -66,7 +66,7 @@ public class Sub extends Expression {
 
         Sub ans = new Sub(op1, op2);
 
-        if (!ans.hasVars()) {
+        if (!ans.hasVariables()) {
             return new Number((ans.eval(" ")));
         }
         return ans;
@@ -75,9 +75,9 @@ public class Sub extends Expression {
     /**
      * Функция для проверки наличия переменных в выражение.
      */
-    public boolean hasVars() {
-        return this.getFirstExpression().hasVars()
-                || this.getSecondExpression().hasVars();
+    public boolean hasVariables() {
+        return this.getFirstExpression().hasVariables()
+                || this.getSecondExpression().hasVariables();
     }
 
     /**

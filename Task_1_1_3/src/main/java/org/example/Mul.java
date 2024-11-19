@@ -3,7 +3,7 @@ package org.example;
 /**
  * Класс, реализующий операцию умножения.
  */
-public class Mul extends Expression{
+public class Mul extends Expression {
     private final Expression firstExpression;
     private final Expression secondExpression;
 
@@ -70,7 +70,7 @@ public class Mul extends Expression{
             return new Number(0);
         }
 
-        if (!hasVars()) {
+        if (!hasVariables()) {
             Mul ans = new Mul(op1, op2);
             return new Number(ans.eval(" "));
         }
@@ -82,8 +82,8 @@ public class Mul extends Expression{
     /**
      * Функция для проверки наличия переменных в выражение.
      */
-    public boolean hasVars() {
-        return this.getFirstExpression().hasVars() || this.getSecondExpression().hasVars();
+    public boolean hasVariables() {
+        return this.getFirstExpression().hasVariables() || this.getSecondExpression().hasVariables();
     }
 
     /**

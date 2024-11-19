@@ -57,12 +57,12 @@ public class Add extends Expression {
      * Функция для упрощения выражения.
      */
     public Expression simplification() {
-        if (!hasVars()) {
+        if (!hasVariables()) {
             return new Number(eval(" "));
         }
         Expression ans = new Add(this.getFirstExpression().simplification(),
                 this.getSecondExpression().simplification());
-        if (!ans.hasVars()) {
+        if (!ans.hasVariables()) {
             return new Number(ans.eval(" "));
         }
 
@@ -72,9 +72,9 @@ public class Add extends Expression {
     /**
      * Функция для проверки наличия переменных в выражение.
      */
-    public boolean hasVars() {
-        return this.getFirstExpression().hasVars()
-                || this.getSecondExpression().hasVars();
+    public boolean hasVariables() {
+        return this.getFirstExpression().hasVariables()
+                || this.getSecondExpression().hasVariables();
     }
 
     /**

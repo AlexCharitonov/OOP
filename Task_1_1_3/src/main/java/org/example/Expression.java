@@ -29,7 +29,7 @@ public abstract class Expression implements Cloneable {
     /**
      * Функция для проверки наличия переменных в выражение.
      */
-    public abstract boolean hasVars();
+    public abstract boolean hasVariables();
 
     /**
      * Функция для проверки что выражения одинаковые.
