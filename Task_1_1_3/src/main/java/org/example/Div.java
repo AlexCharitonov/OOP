@@ -3,7 +3,7 @@ package org.example;
 /**
  * Класс, реализующий операцию деления.
  */
-public class Div extends Expression{
+public class Div extends Expression {
     private final Expression firstExpression;
     private final Expression secondExpression;
 
@@ -13,14 +13,14 @@ public class Div extends Expression{
     }
 
     /**
-     * Геттер для первого Выражения.
+     * Функция для получения первого выражения.
      */
     Expression getFirstExpression() {
         return firstExpression.clone();
     }
 
     /**
-     * Геттер для Второго Выражения.
+     * Функция для получения второго выражения.
      */
     Expression getSecondExpression() {
         return secondExpression.clone();
@@ -41,8 +41,9 @@ public class Div extends Expression{
      * Функция для нахождения производной.
      */
     public Expression derivative(String derVar) {
-        return new Div(new Sub(new Mul(this.getFirstExpression().derivative(derVar), this.getSecondExpression()),
-                new Mul(this.getFirstExpression(), this.getSecondExpression().derivative(derVar))),
+        return new Div(new Sub(new Mul(this.getFirstExpression().derivative(derVar),
+                this.getSecondExpression()), new Mul(this.getFirstExpression(),
+                this.getSecondExpression().derivative(derVar))),
                 new Mul(this.getSecondExpression(), this.getSecondExpression()));
     }
 

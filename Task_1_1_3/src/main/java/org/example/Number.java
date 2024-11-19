@@ -3,7 +3,7 @@ package org.example;
 /**
  * Класс, реализующий число.
  */
-public class Number extends Expression{
+public class Number extends Expression {
     private String num;
 
     public Number(int number) {

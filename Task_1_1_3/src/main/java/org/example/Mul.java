@@ -13,14 +13,14 @@ public class Mul extends Expression{
     }
 
     /**
-     * Геттер для первого Выражения.
+     * Функция для получения первого выражения.
      */
     Expression getFirstExpression() {
         return firstExpression.clone();
     }
 
     /**
-     * Геттер для Второго Выражения.
+     * Функция для получения второго выражения.
      */
     Expression getSecondExpression() {
         return secondExpression.clone();
@@ -41,8 +41,9 @@ public class Mul extends Expression{
      * Функция для нахождения производной.
      */
     public Expression derivative(String derVar) {
-        return new Add(new Mul(this.getFirstExpression().derivative(derVar), this.getSecondExpression()),
-                new Mul(this.getFirstExpression(), this.getSecondExpression().derivative(derVar)));
+        return new Add(new Mul(this.getFirstExpression().derivative(derVar),
+                this.getSecondExpression()), new Mul(this.getFirstExpression(),
+                this.getSecondExpression().derivative(derVar)));
     }
 
     /**

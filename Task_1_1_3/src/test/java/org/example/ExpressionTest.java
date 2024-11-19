@@ -3,6 +3,9 @@ package org.example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Тесты для классов наследуемых от абстрактного класса Expression.
+ */
 class ExpressionTest {
 
     @Test

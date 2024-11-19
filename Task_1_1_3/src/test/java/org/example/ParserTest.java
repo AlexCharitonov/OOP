@@ -3,6 +3,9 @@ package org.example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Тесты для класса Parser.
+ */
 public class ParserTest {
 
     @Test

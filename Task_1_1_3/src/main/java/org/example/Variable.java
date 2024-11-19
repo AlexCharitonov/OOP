@@ -3,7 +3,7 @@ package org.example;
 /**
  * Класс, реализующий переменную.
  */
-public class Variable extends Expression{
+public class Variable extends Expression {
     private String var;
 
     public Variable(String newVar) {

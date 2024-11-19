@@ -3,7 +3,7 @@ package org.example;
 /**
  * Класс, реализующий операцию сложения.
  */
-public class Add extends Expression{
+public class Add extends Expression {
     private final Expression firstExpression;
     private final Expression secondExpression;
 
@@ -13,14 +13,14 @@ public class Add extends Expression{
     }
 
     /**
-     * Получить первое выражения.
+     * Функция для получения первого выражения.
      */
     Expression getFirstExpression() {
         return firstExpression.clone();
     }
 
     /**
-     * Получить второе выражения.
+     * Функция для получения второго выражения.
      */
     Expression getSecondExpression() {
         return secondExpression.clone();
