@@ -38,7 +38,7 @@ public class Mul extends Expression{
     }
 
     /**
-     * Функция для нахождения производной
+     * Функция для нахождения производной.
      */
     public Expression derivative(String derVar) {
         return new Add(new Mul(this.getFirstExpression().derivative(derVar), this.getSecondExpression()),

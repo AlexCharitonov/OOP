@@ -2,6 +2,9 @@ package org.example;
 
 import java.util.Stack;
 
+/**
+ * Класс для преобразования строки в выражение.
+ */
 public class Parser {
     /**
      * Функция для преобразования строки в выражение.
@@ -107,11 +110,12 @@ public class Parser {
         }
 
     }
+
     /**
      * Функция для создания выражения по операции и двум выражениям.
      */
     private static Expression getExprByOp(String op, Expression expr1, Expression expr2) {
-        try{
+        try {
             Expression ans;
             if (op.equals("+")) {
                 ans = new Add(expr1, expr2);
@@ -125,7 +129,7 @@ public class Parser {
                 throw new Exception();
             }
             return ans;
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new ParserException("Parse failed");
         }
     }

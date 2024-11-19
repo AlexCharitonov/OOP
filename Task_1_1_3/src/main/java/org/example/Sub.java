@@ -38,7 +38,7 @@ public class Sub extends Expression{
     }
 
     /**
-     * Функция для нахождения производной
+     * Функция для нахождения производной.
      */
     public Expression derivative(String derVar) {
         return new Sub(this.getFirstExpression().derivative(derVar),

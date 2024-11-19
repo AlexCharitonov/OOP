@@ -38,7 +38,7 @@ public class Add extends Expression{
     }
 
     /**
-     * Функция для нахождения производной
+     * Функция для нахождения производной.
      */
     public Expression derivative(String derVar) {
         return new Add(this.getFirstExpression().derivative(derVar),
