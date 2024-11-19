@@ -83,7 +83,8 @@ public class Mul extends Expression {
      * Функция для проверки наличия переменных в выражение.
      */
     public boolean hasVariables() {
-        return this.getFirstExpression().hasVariables() || this.getSecondExpression().hasVariables();
+        return this.getFirstExpression().hasVariables()
+                || this.getSecondExpression().hasVariables();
     }
 
     /**
