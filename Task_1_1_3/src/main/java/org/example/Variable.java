@@ -24,7 +24,6 @@ public class Variable extends Expression {
         if (derVar.equals(var)) {
             return new Number(1);
         }
-
         return new Number(0);
     }
 
@@ -42,7 +41,6 @@ public class Variable extends Expression {
                 return Integer.parseInt(variables[1]);
             }
         }
-
         throw new EvalException("Matching failed");
     }
 
@@ -67,7 +65,6 @@ public class Variable extends Expression {
         if (!(expr instanceof Variable)) {
             return false;
         }
-
         Variable variable = (Variable) expr;
         return var.equals(variable.var);
     }

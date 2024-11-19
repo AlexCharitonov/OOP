@@ -13,10 +13,8 @@ public class Parser {
     public static Expression parse(String expr) {
         try {
             String str = expr.replaceAll(" ", "");
-
             Stack<Expression> stackExpr = new Stack<Expression>();
             Stack<String> stackOp = new Stack<String>();
-
             for (int i = 0; i < str.length(); i++) {
                 if (Character.isDigit(str.charAt(i))) {
                     int start = i;
@@ -108,7 +106,6 @@ public class Parser {
         } catch (Exception e) {
             throw new ParserException("Parse failed");
         }
-
     }
 
     /**

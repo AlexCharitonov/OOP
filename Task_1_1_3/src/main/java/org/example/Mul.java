@@ -59,7 +59,6 @@ public class Mul extends Expression {
     public Expression simplification() {
         Expression op1 = this.getFirstExpression().simplification();
         Expression op2 = this.getSecondExpression().simplification();
-
         if (op1 instanceof Number && op1.eval("") == 1) {
             return op2.clone();
         } else if (op1 instanceof Number && op1.eval("") == 0) {
@@ -69,12 +68,10 @@ public class Mul extends Expression {
         } else if (op2 instanceof Number && op2.eval("") == 0) {
             return new Number(0);
         }
-
         if (!hasVariables()) {
             Mul ans = new Mul(op1, op2);
             return new Number(ans.eval(" "));
         }
-
         return new Mul(op1, op2);
 
     }
@@ -94,7 +91,6 @@ public class Mul extends Expression {
         if (!(expr instanceof Mul)) {
             return false;
         }
-
         Mul mul = (Mul) expr;
         return this.getFirstExpression().equals(mul.getFirstExpression())
                 && this.getSecondExpression().equals(mul.getSecondExpression());

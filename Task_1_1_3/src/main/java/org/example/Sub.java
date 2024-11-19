@@ -59,13 +59,10 @@ public class Sub extends Expression {
     public Expression simplification() {
         Expression op1 = this.getFirstExpression().simplification();
         Expression op2 = this.getSecondExpression().simplification();
-
         if (op1.equals(op2)) {
             return new Number(0);
         }
-
         Sub ans = new Sub(op1, op2);
-
         if (!ans.hasVariables()) {
             return new Number((ans.eval(" ")));
         }
@@ -87,7 +84,6 @@ public class Sub extends Expression {
         if (!(expr instanceof Sub)) {
             return false;
         }
-
         Sub sub = (Sub) expr;
         return this.getFirstExpression().equals(sub.getFirstExpression())
                 && this.getSecondExpression().equals(sub.getSecondExpression());

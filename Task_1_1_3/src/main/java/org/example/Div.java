@@ -60,13 +60,11 @@ public class Div extends Expression {
     public Expression simplification() {
         Expression op1 = this.getFirstExpression().simplification();
         Expression op2 = this.getSecondExpression().simplification();
-
         if (op1 instanceof Number && op1.eval(" ") == 0) {
             return new Number(0);
         } else if (op2 instanceof Number && op2.eval(" ") == 1) {
             return op1;
         }
-
         Div ans = new Div(op1, op2);
         if (!ans.hasVariables()) {
             return new Number(ans.eval(" "));
@@ -89,7 +87,6 @@ public class Div extends Expression {
         if (!(expr instanceof Div)) {
             return false;
         }
-
         Div div = (Div) expr;
         return this.getFirstExpression().equals(div.getFirstExpression())
                 && this.getSecondExpression().equals(div.getSecondExpression());

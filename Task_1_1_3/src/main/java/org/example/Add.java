@@ -65,7 +65,6 @@ public class Add extends Expression {
         if (!ans.hasVariables()) {
             return new Number(ans.eval(" "));
         }
-
         return ans;
     }
 

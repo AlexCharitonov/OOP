@@ -56,7 +56,6 @@ public class Number extends Expression {
         if (!(expr instanceof Number)) {
             return false;
         }
-
         Number number = (Number) expr;
         return num.equals(number.num);
     }
