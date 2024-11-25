@@ -1,4 +1,4 @@
-package org.example.Expression;
+package org.example.expression;
 
 import org.example.exception.EvalException;
 
@@ -24,7 +24,7 @@ public class Variable extends Expression {
      */
     public Expression derivative(String derVar) {
         if (derVar.equals(var)) {
-            return new org.example.Expression.Number(1);
+            return new org.example.expression.Number(1);
         }
         return new Number(0);
     }

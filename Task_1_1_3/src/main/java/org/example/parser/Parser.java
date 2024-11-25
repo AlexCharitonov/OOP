@@ -1,9 +1,13 @@
 package org.example.parser;
 
-import org.example.Expression.*;
-import org.example.Expression.Number;
+import org.example.expression.Add;
+import org.example.expression.Sub;
+import org.example.expression.Mul;
+import org.example.expression.Div;
+import org.example.expression.Expression;
+import org.example.expression.Number;
+import org.example.expression.Variable;
 import org.example.exception.ParserException;
-
 import java.util.Stack;
 
 /**

@@ -1,13 +1,13 @@
-package org.example.Expression;
+package org.example.expression;
 
 /**
- * Класс, реализующий операцию сложения.
+ * Класс, реализующий операцию вычитания.
  */
-public class Add extends Expression {
+public class Sub extends Expression {
     private final Expression firstExpression;
     private final Expression secondExpression;
 
-    public Add(Expression first, Expression second) {
+    public Sub(Expression first, Expression second) {
         firstExpression = first.clone();
         secondExpression = second.clone();
     }
@@ -32,7 +32,7 @@ public class Add extends Expression {
     public void print() {
         System.out.print("(");
         this.getFirstExpression().print();
-        System.out.print("+");
+        System.out.print("-");
         this.getSecondExpression().print();
         System.out.print(")");
     }
@@ -41,7 +41,7 @@ public class Add extends Expression {
      * Функция для нахождения производной.
      */
     public Expression derivative(String derVar) {
-        return new Add(this.getFirstExpression().derivative(derVar),
+        return new Sub(this.getFirstExpression().derivative(derVar),
                 this.getSecondExpression().derivative(derVar));
     }
 
@@ -50,20 +50,21 @@ public class Add extends Expression {
      */
     public int eval(String varVal) {
         return this.getFirstExpression().eval(varVal)
-                + this.getSecondExpression().eval(varVal);
+                - this.getSecondExpression().eval(varVal);
     }
 
     /**
      * Функция для упрощения выражения.
      */
     public Expression simplification() {
-        if (!hasVariables()) {
-            return new Number(eval(" "));
+        Expression op1 = this.getFirstExpression().simplification();
+        Expression op2 = this.getSecondExpression().simplification();
+        if (op1.equals(op2)) {
+            return new org.example.expression.Number(0);
         }
-        Expression ans = new Add(this.getFirstExpression().simplification(),
-                this.getSecondExpression().simplification());
+        Sub ans = new Sub(op1, op2);
         if (!ans.hasVariables()) {
-            return new Number(ans.eval(" "));
+            return new Number((ans.eval(" ")));
         }
         return ans;
     }
@@ -80,11 +81,11 @@ public class Add extends Expression {
      * Функция для проверки что выражения одинаковые.
      */
     public boolean equals(Expression expr) {
-        if (!(expr instanceof Add)) {
+        if (!(expr instanceof Sub)) {
             return false;
         }
-        Add add = (Add) expr;
-        return this.getFirstExpression().equals(add.getFirstExpression())
-                && this.getSecondExpression().equals(add.getSecondExpression());
+        Sub sub = (Sub) expr;
+        return this.getFirstExpression().equals(sub.getFirstExpression())
+                && this.getSecondExpression().equals(sub.getSecondExpression());
     }
 }
