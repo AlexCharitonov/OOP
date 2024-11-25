@@ -60,7 +60,7 @@ public class Sub extends Expression {
         Expression op1 = this.getFirstExpression().simplification();
         Expression op2 = this.getSecondExpression().simplification();
         if (op1.equals(op2)) {
-            return new org.example.expression.Number(0);
+            return new Number(0);
         }
         Sub ans = new Sub(op1, op2);
         if (!ans.hasVariables()) {

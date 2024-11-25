@@ -18,10 +18,15 @@ public class Main {
         String str = in.nextLine();
         Expression expr = Parser.parse(str);
         expr.print();
-        Expression derive = expr.derivative(str);
+        System.out.print("\n");
+        Expression derive = expr.derivative("x");
         derive.print();
+        System.out.print("\n");
         Expression simply = expr.simplification();
         simply.print();
+        System.out.print("\n");
+        Expression simplyder = derive.simplification();
+        simplyder.print();
         in.close();
     }
 }

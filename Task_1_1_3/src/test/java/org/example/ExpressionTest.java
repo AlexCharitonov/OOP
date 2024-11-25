@@ -46,12 +46,17 @@ class ExpressionTest {
 
     @Test
     void testDerivative() {
-        Expression expr = new Mul(new Mul(new Mul(new Mul(new Variable("x"), new Variable("x")),
+        Expression expr = Parser.parse("x*x*x*x*x");
+        Expression ans = new Add(new Mul(new Add(new Mul(new Add(new Mul(new Add(new Variable("x"),
+                new Variable("x")),
+                new Variable("x")),
                 new Mul(new Variable("x"), new Variable("x"))),
+                new Variable("x")),
                 new Mul(new Mul(new Variable("x"), new Variable("x")),
-                new Mul(new Variable("x"), new Variable("x")))),
-                new Mul(new Variable("x"), new Variable("x")));
-        Expression ans = new Mul(new Number(9), new Variable("x"));
+                        new Variable("x"))),
+                new Variable("x")),
+                new Mul(new Mul(new Mul(new Variable("x"), new Variable("x")),
+                        new Variable("x")), new Variable("x")));
         Assertions.assertTrue(ans.equals(expr.derivative("x").simplification()));
     }
 
