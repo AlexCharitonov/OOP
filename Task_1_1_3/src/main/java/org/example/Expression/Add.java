@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Expression;
 
 /**
  * Класс, реализующий операцию сложения.

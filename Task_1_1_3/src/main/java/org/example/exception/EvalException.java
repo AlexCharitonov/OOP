@@ -1,4 +1,4 @@
-package org.example;
+package org.example.exception;
 
 /**
  * Исключение при ошибке в вычисление значения по заданным переменным.

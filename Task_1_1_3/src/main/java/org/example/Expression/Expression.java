@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Expression;
 
 /**
  * Класс, являющийся шаблоном для математических выражений.

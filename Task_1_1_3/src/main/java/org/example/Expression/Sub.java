@@ -1,13 +1,13 @@
-package org.example;
+package org.example.Expression;
 
 /**
- * Класс, реализующий операцию умножения.
+ * Класс, реализующий операцию вычитания.
  */
-public class Mul extends Expression {
+public class Sub extends Expression {
     private final Expression firstExpression;
     private final Expression secondExpression;
 
-    public Mul(Expression first, Expression second) {
+    public Sub(Expression first, Expression second) {
         firstExpression = first.clone();
         secondExpression = second.clone();
     }
@@ -32,7 +32,7 @@ public class Mul extends Expression {
     public void print() {
         System.out.print("(");
         this.getFirstExpression().print();
-        System.out.print("*");
+        System.out.print("-");
         this.getSecondExpression().print();
         System.out.print(")");
     }
@@ -41,16 +41,16 @@ public class Mul extends Expression {
      * Функция для нахождения производной.
      */
     public Expression derivative(String derVar) {
-        return new Add(new Mul(this.getFirstExpression().derivative(derVar),
-                this.getSecondExpression()), new Mul(this.getFirstExpression(),
-                this.getSecondExpression().derivative(derVar)));
+        return new Sub(this.getFirstExpression().derivative(derVar),
+                this.getSecondExpression().derivative(derVar));
     }
 
     /**
      * Функция для нахождения значения выражения по заданным значениям переменных.
      */
     public int eval(String varVal) {
-        return this.getFirstExpression().eval(varVal) * this.getSecondExpression().eval(varVal);
+        return this.getFirstExpression().eval(varVal)
+                - this.getSecondExpression().eval(varVal);
     }
 
     /**
@@ -59,21 +59,14 @@ public class Mul extends Expression {
     public Expression simplification() {
         Expression op1 = this.getFirstExpression().simplification();
         Expression op2 = this.getSecondExpression().simplification();
-        if (op1 instanceof Number && op1.eval("") == 1) {
-            return op2.clone();
-        } else if (op1 instanceof Number && op1.eval("") == 0) {
-            return new Number(0);
-        } else if (op2 instanceof Number && op2.eval("") == 1) {
-            return op1.clone();
-        } else if (op2 instanceof Number && op2.eval("") == 0) {
-            return new Number(0);
+        if (op1.equals(op2)) {
+            return new org.example.Expression.Number(0);
         }
-        if (!hasVariables()) {
-            Mul ans = new Mul(op1, op2);
-            return new Number(ans.eval(" "));
+        Sub ans = new Sub(op1, op2);
+        if (!ans.hasVariables()) {
+            return new Number((ans.eval(" ")));
         }
-        return new Mul(op1, op2);
-
+        return ans;
     }
 
     /**
@@ -88,11 +81,11 @@ public class Mul extends Expression {
      * Функция для проверки что выражения одинаковые.
      */
     public boolean equals(Expression expr) {
-        if (!(expr instanceof Mul)) {
+        if (!(expr instanceof Sub)) {
             return false;
         }
-        Mul mul = (Mul) expr;
-        return this.getFirstExpression().equals(mul.getFirstExpression())
-                && this.getSecondExpression().equals(mul.getSecondExpression());
+        Sub sub = (Sub) expr;
+        return this.getFirstExpression().equals(sub.getFirstExpression())
+                && this.getSecondExpression().equals(sub.getSecondExpression());
     }
 }

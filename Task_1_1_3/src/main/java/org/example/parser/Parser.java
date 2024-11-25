@@ -1,4 +1,8 @@
-package org.example;
+package org.example.parser;
+
+import org.example.Expression.*;
+import org.example.Expression.Number;
+import org.example.exception.ParserException;
 
 import java.util.Stack;
 

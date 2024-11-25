@@ -1,10 +1,10 @@
-package org.example;
+package org.example.Expression;
 
 /**
  * Класс, реализующий число.
  */
 public class Number extends Expression {
-    private String num;
+    private final String num;
 
     public Number(int number) {
         num = String.valueOf(number);

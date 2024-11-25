@@ -1,10 +1,12 @@
-package org.example;
+package org.example.Expression;
+
+import org.example.exception.EvalException;
 
 /**
  * Класс, реализующий переменную.
  */
 public class Variable extends Expression {
-    private String var;
+    private final String var;
 
     public Variable(String newVar) {
         var = newVar;
@@ -22,7 +24,7 @@ public class Variable extends Expression {
      */
     public Expression derivative(String derVar) {
         if (derVar.equals(var)) {
-            return new Number(1);
+            return new org.example.Expression.Number(1);
         }
         return new Number(0);
     }
