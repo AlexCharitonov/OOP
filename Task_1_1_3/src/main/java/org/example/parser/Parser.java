@@ -1,5 +1,6 @@
 package org.example.parser;
 
+import java.util.Stack;
 import org.example.exception.ParserException;
 import org.example.expression.Add;
 import org.example.expression.Div;
@@ -8,7 +9,7 @@ import org.example.expression.Mul;
 import org.example.expression.Number;
 import org.example.expression.Sub;
 import org.example.expression.Variable;
-import java.util.Stack;
+
 
 /**
  * Класс для преобразования строки в выражение.
