@@ -10,7 +10,6 @@ import org.example.expression.Number;
 import org.example.expression.Sub;
 import org.example.expression.Variable;
 
-
 /**
  * Класс для преобразования строки в выражение.
  */

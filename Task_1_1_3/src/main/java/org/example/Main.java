@@ -1,8 +1,8 @@
 package org.example;
 
+import java.util.Scanner;
 import org.example.expression.Expression;
 import org.example.parser.Parser;
-import java.util.Scanner;
 
 /**
  * Класс содержащий main.
@@ -18,6 +18,8 @@ public class Main {
         String str = in.nextLine();
         Expression expr = Parser.parse(str);
         expr.print();
+        Expression derive = expr.derivative(str);
+        derive.print();
         Expression simply = expr.simplification();
         simply.print();
         in.close();
