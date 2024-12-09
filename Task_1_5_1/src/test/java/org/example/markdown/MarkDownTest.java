@@ -1,4 +1,4 @@
-package org.example.markDown;
+package org.example.markdown;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class MarkDownTest {
 
     @Test
-    void TaskListTest() {
+    void taskListTest() {
         TaskList.TaskListBuilder builder = new TaskList.TaskListBuilder();
         builder = builder.addNode(true, "Wake up");
         builder.addNode(true, "Visit U");
@@ -23,7 +23,7 @@ public class MarkDownTest {
     }
 
     @Test
-    void CodeBlocksTest() {
+    void codeBlocksTest() {
         CodeBlocks.CodeBlocksBuilder builder = new CodeBlocks.CodeBlocksBuilder();
         builder = builder.addString(new Text.TextBuilder()
                 .setText("print(\"Hello World\");").build());
@@ -33,7 +33,7 @@ public class MarkDownTest {
     }
 
     @Test
-    void HeadingTest() {
+    void headingTest() {
         Heading.HeadingBuilder builder = new Heading.HeadingBuilder();
         builder.setHeader("header", 2);
 
@@ -45,7 +45,7 @@ public class MarkDownTest {
     }
 
     @Test
-    void ImageTest() {
+    void imageTest() {
         Image.ImageBuilder builder = new Image.ImageBuilder();
         builder.setText("image");
         builder.setLink("https://images.unsplash.com/photo-1571992049393-827d13da8fe3?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
@@ -56,7 +56,7 @@ public class MarkDownTest {
     }
 
     @Test
-    void LinkTest() {
+    void linkTest() {
         Image.ImageBuilder builder = new Image.ImageBuilder();
         builder.setText("image");
         builder.setLink("https://images.unsplash.com/photo-1571992049393-827d13da8fe3?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
@@ -67,7 +67,7 @@ public class MarkDownTest {
     }
 
     @Test
-    void BlockQuotesTest() {
+    void blockQuotesTest() {
         BlockQuotes.BlockQuotesBuilder builder = new BlockQuotes.BlockQuotesBuilder();
         builder.setQuote("People who thinks they know everything are a great \n"
                 + "annoyance to those of us who do\n"
@@ -81,7 +81,7 @@ public class MarkDownTest {
     }
 
     @Test
-    void TextTest() {
+    void textTest() {
         Text.TextBuilder builder = new Text.TextBuilder();
         builder.setText("Just").setLineBreak()
                 .setBold("simple").setLineBreak()
@@ -102,7 +102,7 @@ public class MarkDownTest {
     }
 
     @Test
-    void TableTest() {
+    void tableTest() {
         Table.TableBuilder builder = new Table.TableBuilder();
         builder.withAlignments(Table.Align.RIGHT_ALIGN,
                         Table.Align.CENTER_ALIGN, Table.Align.LEFT_ALIGN)
