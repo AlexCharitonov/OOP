@@ -112,7 +112,7 @@ public class Table extends Element {
             if (cntCols == 0) {
                 cntCols = mass.length;
             }
-            if (cntCols != mass.length){
+            if (cntCols != mass.length) {
                 throw new RuntimeException("count of align not equal to columns");
             }
             aligns = new Align[cntCols];
@@ -167,10 +167,10 @@ public class Table extends Element {
                     maxRows = 10;
                     cntRows = 0;
                 }
-                if (!isLimitSet){
-                    limitToCell =0;
+                if (!isLimitSet) {
+                    limitToCell = 0;
                     for (int i = 0; i < cntCols; i++) {
-                        if (limitToCell < strs[i].length()){
+                        if (limitToCell < strs[i].length()) {
                             limitToCell = strs[i].length();
                         }
                     }
@@ -178,24 +178,24 @@ public class Table extends Element {
                 }
                 table = new String[maxRows][cntCols];
             }
-            if(cntRows >= maxRows){
+            if (cntRows >= maxRows) {
                 throw new RuntimeException("More rows than acceptable");
             }
             for (int i = 0; i < cntCols; i++) {
-                if (strs[i].length() > limitToCell){
+                if (strs[i].length() > limitToCell) {
                     throw new RuntimeException("row longer than acceptable");
                 }
                 StringBuilder sb = new StringBuilder(limitToCell);
                 switch (aligns[i]) {
                     case LEFT_ALIGN:
                         sb.append(strs[i]);
-                        for (int j =0; j<(limitToCell - strs[i].length());j++) {
+                        for (int j = 0; j < (limitToCell - strs[i].length()); j++) {
                             sb.append(' ');
                         }
                         table[cntRows][i] = sb.toString();
                         break;
                     case RIGHT_ALIGN:
-                        for (int j =0; j<(limitToCell - strs[i].length());j++) {
+                        for (int j = 0; j < (limitToCell - strs[i].length()); j++) {
                             sb.append(' ');
                         }
                         sb.append(strs[i]);
@@ -204,18 +204,17 @@ public class Table extends Element {
                     case CENTER_ALIGN:
                         int leftSpace;
                         int rightSpace;
-                        if ((limitToCell - strs[i].length()) %2 == 1){
-                            leftSpace =  ((limitToCell - strs[i].length())/2) + 1;
+                        if ((limitToCell - strs[i].length()) % 2 == 1){
+                            leftSpace =  ((limitToCell - strs[i].length()) / 2) + 1;
+                        }else {
+                            leftSpace =  ((limitToCell - strs[i].length()) / 2);
                         }
-                        else{
-                            leftSpace =  ((limitToCell - strs[i].length())/2);
-                        }
-                        rightSpace =  ((limitToCell - strs[i].length())/2);
-                        for (int j =0; j<leftSpace;j++) {
+                        rightSpace =  ((limitToCell - strs[i].length()) / 2);
+                        for (int j = 0; j < leftSpace; j++) {
                             sb.append(' ');
                         }
                         sb.append(strs[i]);
-                        for (int j =0; j<rightSpace;j++) {
+                        for (int j = 0; j < rightSpace; j++) {
                             sb.append(' ');
                         }
                         table[cntRows][i] = sb.toString();
@@ -245,10 +244,10 @@ public class Table extends Element {
                     maxRows = 10;
                     cntRows = 0;
                 }
-                if (!isLimitSet){
+                if (!isLimitSet) {
                     limitToCell =0;
                     for (int i = 0; i < cntCols; i++) {
-                        if (limitToCell < elements[i].str.length()){
+                        if (limitToCell < elements[i].str.length()) {
                             limitToCell = elements[i].str.length();
                         }
                     }
@@ -257,20 +256,20 @@ public class Table extends Element {
                 table = new String[maxRows][cntCols];
             }
             for (int i = 0; i < cntCols; i++) {
-                if (elements[i].str.length() > limitToCell){
+                if (elements[i].str.length() > limitToCell) {
                     throw new RuntimeException("row longer than acceptable");
                 }
                 StringBuilder sb = new StringBuilder(limitToCell);
                 switch (aligns[i]) {
                     case LEFT_ALIGN:
                         sb.append(elements[i].str);
-                        for (int j =0; j<(limitToCell - elements[i].str.length());j++) {
+                        for (int j = 0; j < (limitToCell - elements[i].str.length()); j++) {
                             sb.append(' ');
                         }
                         table[cntRows][i] = sb.toString();
                         break;
                     case RIGHT_ALIGN:
-                        for (int j =0; j<(limitToCell - elements[i].str.length());j++) {
+                        for (int j = 0; j < (limitToCell - elements[i].str.length()); j++) {
                             sb.append(' ');
                         }
                         sb.append(elements[i].str);
@@ -279,18 +278,17 @@ public class Table extends Element {
                     case CENTER_ALIGN:
                         int leftSpace;
                         int rightSpace;
-                        if ((limitToCell - elements[i].str.length()) %2 == 1){
-                            leftSpace =  ((limitToCell - elements[i].str.length())/2) + 1;
+                        if ((limitToCell - elements[i].str.length()) %2 == 1) {
+                            leftSpace = ((limitToCell - elements[i].str.length()) / 2) + 1;
+                        }else {
+                            leftSpace = ((limitToCell - elements[i].str.length()) / 2);
                         }
-                        else{
-                            leftSpace =  ((limitToCell - elements[i].str.length())/2);
-                        }
-                        rightSpace =  ((limitToCell - elements[i].str.length())/2);
-                        for (int j =0; j<leftSpace;j++) {
+                        rightSpace = ((limitToCell - elements[i].str.length())/2);
+                        for (int j = 0; j < leftSpace; j++) {
                             sb.append(' ');
                         }
                         sb.append(elements[i].str);
-                        for (int j =0; j<rightSpace;j++) {
+                        for (int j = 0; j < rightSpace; j++) {
                             sb.append(' ');
                         }
                         table[cntRows][i] = sb.toString();
