@@ -6,7 +6,7 @@ import java.util.Arrays;
 /**
  * Code class.
  */
-public class CodeBlocks extends Element{
+public class CodeBlocks extends Element {
 
     /**
      * Constructor by builder.

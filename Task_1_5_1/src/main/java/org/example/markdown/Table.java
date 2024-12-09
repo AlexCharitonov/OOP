@@ -204,9 +204,9 @@ public class Table extends Element {
                     case CENTER_ALIGN:
                         int leftSpace;
                         int rightSpace;
-                        if ((limitToCell - strs[i].length()) % 2 == 1){
+                        if ((limitToCell - strs[i].length()) % 2 == 1) {
                             leftSpace =  ((limitToCell - strs[i].length()) / 2) + 1;
-                        }else {
+                        } else {
                             leftSpace =  ((limitToCell - strs[i].length()) / 2);
                         }
                         rightSpace =  ((limitToCell - strs[i].length()) / 2);
@@ -245,7 +245,7 @@ public class Table extends Element {
                     cntRows = 0;
                 }
                 if (!isLimitSet) {
-                    limitToCell =0;
+                    limitToCell = 0;
                     for (int i = 0; i < cntCols; i++) {
                         if (limitToCell < elements[i].str.length()) {
                             limitToCell = elements[i].str.length();
@@ -278,12 +278,12 @@ public class Table extends Element {
                     case CENTER_ALIGN:
                         int leftSpace;
                         int rightSpace;
-                        if ((limitToCell - elements[i].str.length()) %2 == 1) {
+                        if ((limitToCell - elements[i].str.length()) % 2 == 1) {
                             leftSpace = ((limitToCell - elements[i].str.length()) / 2) + 1;
-                        }else {
+                        } else {
                             leftSpace = ((limitToCell - elements[i].str.length()) / 2);
                         }
-                        rightSpace = ((limitToCell - elements[i].str.length())/2);
+                        rightSpace = ((limitToCell - elements[i].str.length()) / 2);
                         for (int j = 0; j < leftSpace; j++) {
                             sb.append(' ');
                         }
