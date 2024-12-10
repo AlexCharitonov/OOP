@@ -13,12 +13,10 @@ public class MarkDownTest {
         builder = builder.addNode(true, "Wake up");
         builder.addNode(true, "Visit U");
         builder = builder.addNode(false, "do cleaning");
-
         TaskList.TaskListBuilder builder2 = new TaskList.TaskListBuilder();
         builder2 = builder2.addNode(true, new Text.TextBuilder().setText("Wake up").build());
         builder2.addNode(true, new Text.TextBuilder().setText("Visit U").build());
         builder2 = builder2.addNode(false, new Text.TextBuilder().setText("do cleaning").build());
-
         assertTrue(builder2.build().equals(builder.build()));
     }
 
@@ -26,9 +24,9 @@ public class MarkDownTest {
     void codeBlocksTest() {
         CodeBlocks.CodeBlocksBuilder builder = new CodeBlocks.CodeBlocksBuilder();
         builder = builder.addString(new Text.TextBuilder()
-                .setText("print(\"Hello World\");").build());
+                .setText("print(\"Test_1_5_1\");").build());
         CodeBlocks.CodeBlocksBuilder builder1
-                = new CodeBlocks.CodeBlocksBuilder().addString("print(\"Hello World\");");
+                = new CodeBlocks.CodeBlocksBuilder().addString("print(\"Test_1_5_1\");");
         assertTrue(builder1.build().equals(builder.build()));
     }
 
@@ -36,11 +34,9 @@ public class MarkDownTest {
     void headingTest() {
         Heading.HeadingBuilder builder = new Heading.HeadingBuilder();
         builder.setHeader("header", 2);
-
         Heading.HeadingBuilder builder1 = new Heading.HeadingBuilder();
         builder1.setHeader(new Text.TextBuilder()
                 .setText("header").build(), 2);
-
         assertTrue(builder.build().equals(builder1.build()));
     }
 
@@ -48,19 +44,19 @@ public class MarkDownTest {
     void imageTest() {
         Image.ImageBuilder builder = new Image.ImageBuilder();
         builder.setText("image");
-        builder.setLink("https://images.unsplash.com/photo-1571992049393-827d13da8fe3?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        builder.setLink("https://cdn.akamai.steamstatic.com/apps/dota2/images/crownfall/act4_ascension_night/russian/112.webp");
         Image.ImageBuilder builder1 = new Image.ImageBuilder();
         builder1.setText(new Text.TextBuilder().setText("image").build());
-        builder1.setLink("https://images.unsplash.com/photo-1571992049393-827d13da8fe3?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        builder1.setLink("https://cdn.akamai.steamstatic.com/apps/dota2/images/crownfall/act4_ascension_night/russian/112.webp");
         assertTrue(builder.build().equals(builder1.build()));
     }
 
     @Test
     void linkTest() {
         Link.LinkBuilder builder = new Link.LinkBuilder();
-        builder.setLink("https://mapgenie.io/god-of-war-2018/maps/midgard");
+        builder.setLink("https://hades.fandom.com/ru/wiki/%D0%A1%D1%83%D0%B2%D0%B5%D0%BD%D0%B8%D1%80%D1%8B");
         Link.LinkBuilder builder1 = new Link.LinkBuilder();
-        builder1.setLink(new Text.TextBuilder().setText("https://mapgenie.io/god-of-war-2018/maps/midgard").build());
+        builder1.setLink(new Text.TextBuilder().setText("https://hades.fandom.com/ru/wiki/%D0%A1%D1%83%D0%B2%D0%B5%D0%BD%D0%B8%D1%80%D1%8B").build());
         assertTrue(builder.build().equals(builder1.build()));
     }
 
@@ -105,6 +101,7 @@ public class MarkDownTest {
         builder.withAlignments(Table.Align.RIGHT_ALIGN,
                         Table.Align.CENTER_ALIGN, Table.Align.LEFT_ALIGN)
                 .setMaxRows(5)
+                .withRowLimit(15)
                 .addRow("Index", "Index x2", "Index * Index");
         for (int i = 0; i < 3; i++) {
             builder.addRow(
@@ -117,6 +114,7 @@ public class MarkDownTest {
         builder1.withAlignments(Table.Align.RIGHT_ALIGN,
                         Table.Align.CENTER_ALIGN, Table.Align.LEFT_ALIGN)
                 .setMaxRows(5)
+                .withRowLimit(15)
                 .addRow("Index", "Index x2", "Index * Index");
         for (int i = 0; i < 3; i++) {
             builder1.addRow(

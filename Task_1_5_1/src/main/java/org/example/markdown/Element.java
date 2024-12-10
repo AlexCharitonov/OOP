@@ -10,7 +10,6 @@ public class Element implements Serializable {
 
     /**
      * Make string.
-     *
      * @return string
      */
     @Override

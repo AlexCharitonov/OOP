@@ -16,7 +16,6 @@ public class Image extends Element {
 
     /**
      * Constructor by builder.
-     *
      * @param builder builder
      */
     Image(ImageBuilder builder) {
@@ -30,7 +29,6 @@ public class Image extends Element {
 
     /**
      * Make string.
-     *
      * @return string
      */
     @Override
@@ -41,7 +39,6 @@ public class Image extends Element {
 
     /**
      * Compare objects.
-     *
      * @param obj object to compare
      * @return is equal
      */
@@ -82,7 +79,6 @@ public class Image extends Element {
 
         /**
          * Set link.
-         *
          * @param link link
          * @return builder
          */
@@ -93,7 +89,6 @@ public class Image extends Element {
 
         /**
          * Set text by String.
-         *
          * @param text text
          * @return builder
          */
@@ -104,7 +99,6 @@ public class Image extends Element {
 
         /**
          * Set text by Element.
-         *
          * @param text text
          * @return builder
          */
@@ -115,7 +109,6 @@ public class Image extends Element {
 
         /**
          * Build builder.
-         *
          * @return built Image
          */
         public Image build() {
