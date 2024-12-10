@@ -10,7 +10,7 @@ public class Table extends Element {
     Align []aligns;
     int cntRows;
     int cntCols;
-    int cntRowLinit;
+    int cntRowLimit;
 
 
     /**
@@ -18,15 +18,12 @@ public class Table extends Element {
      *
      * @param builder builder
      */
-    Table(TableBuilder builder) {
+    public Table(TableBuilder builder) {
         cntCols = builder.cntCols;
         cntRows = builder.cntRows;
-        cntRowLinit = builder.limitToCell;
+        cntRowLimit = builder.limitToCell;
         aligns = Arrays.copyOf(builder.aligns, cntCols);
         table = Arrays.copyOf(builder.table, cntRows);
-        for (int i = 0; i < cntRows; i++) {
-            table[i] = Arrays.copyOf(builder.table[i], cntCols);
-        }
         str = this.toString();
     }
 
@@ -98,7 +95,7 @@ public class Table extends Element {
         /**
          * Builder constructor.
          */
-        TableBuilder() {
+        public TableBuilder() {
             table = null;
         }
 
@@ -178,8 +175,8 @@ public class Table extends Element {
                 }
                 table = new String[maxRows][cntCols];
             }
-            if (cntRows >= maxRows) {
-                throw new RuntimeException("More rows than acceptable");
+            if (cntRows == maxRows) {
+                throw new RuntimeException("row count more than acceptable");
             }
             for (int i = 0; i < cntCols; i++) {
                 if (strs[i].length() > limitToCell) {
@@ -254,6 +251,9 @@ public class Table extends Element {
                     isLimitSet = true;
                 }
                 table = new String[maxRows][cntCols];
+            }
+            if (cntRows == maxRows) {
+                throw new RuntimeException("row count more than acceptable");
             }
             for (int i = 0; i < cntCols; i++) {
                 if (elements[i].str.length() > limitToCell) {

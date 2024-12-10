@@ -10,7 +10,7 @@ public class Image extends Element {
     /**
      * Simple Constructor.
      */
-    Image() {
+    public Image() {
         str = "";
     }
 
@@ -19,7 +19,7 @@ public class Image extends Element {
      *
      * @param builder builder
      */
-    Image(ImageBuilder builder) {
+    public Image(ImageBuilder builder) {
         if (builder.text == null || builder.link == null) {
             throw new RuntimeException();
         }
@@ -50,18 +50,14 @@ public class Image extends Element {
         if (this.getClass() != obj.getClass()) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
         Image newImage = (Image) obj;
-
-        if (!link.equals(newImage.link)) {
+        if (!text.equals(newImage.text)) {
             return false;
         }
-
-        return (text.equals(newImage.text));
+        return (link.equals(newImage.link));
     }
 
     /**
@@ -71,11 +67,10 @@ public class Image extends Element {
         String text;
         String link;
 
-
         /**
          * Builder constructor.
          */
-        ImageBuilder() {
+        public ImageBuilder() {
             text = "";
             link = "";
         }

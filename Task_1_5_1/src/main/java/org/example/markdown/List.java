@@ -82,7 +82,7 @@ public class List extends Element {
          *
          * @param point char to be point of list
          */
-        ListBuilder(char point) {
+        public ListBuilder(char point) {
             str = new String[10];
             this.point = point;
             if (Character.isDigit(point)) {

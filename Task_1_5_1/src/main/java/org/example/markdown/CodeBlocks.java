@@ -13,7 +13,7 @@ public class CodeBlocks extends Element {
      *
      * @param builder builder.
      */
-    CodeBlocks(CodeBlocksBuilder builder) {
+    public CodeBlocks(CodeBlocksBuilder builder) {
         str = "```\n";
         for (int i = 0; i < builder.size; i++) {
             str += builder.code[i] + "\n";
@@ -64,7 +64,7 @@ public class CodeBlocks extends Element {
         /**
          * Builder constructor.
          */
-        CodeBlocksBuilder() {
+        public CodeBlocksBuilder() {
             maxSize = 10;
             code = new String[maxSize];
         }

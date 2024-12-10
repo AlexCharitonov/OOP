@@ -11,7 +11,7 @@ public class TaskList extends Element {
      *
      * @param builder builder.
      */
-    TaskList(TaskListBuilder builder) {
+    public TaskList(TaskListBuilder builder) {
         list = builder.list;
         str = builder.list.build().str;
     }
@@ -46,7 +46,7 @@ public class TaskList extends Element {
         /**
          * Builder constructor.
          */
-        TaskListBuilder() {
+        public TaskListBuilder() {
             list = new List.ListBuilder('-');
         }
 

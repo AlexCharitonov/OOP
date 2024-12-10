@@ -8,7 +8,7 @@ public class Heading extends Element {
     /**
      * Simple constructor.
      */
-    Heading() {
+    public Heading() {
         this.str = "";
     }
 
@@ -17,7 +17,7 @@ public class Heading extends Element {
      *
      * @param builder builder.
      */
-    Heading(HeadingBuilder builder) {
+    public Heading(HeadingBuilder builder) {
         str = builder.str;
     }
 
@@ -52,7 +52,7 @@ public class Heading extends Element {
         /**
          * Builder constructor.
          */
-        HeadingBuilder() {
+        public HeadingBuilder() {
             str = "";
         }
 

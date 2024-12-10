@@ -11,7 +11,7 @@ public class BlockQuotes extends Element {
      *
      * @param builder builder
      */
-    BlockQuotes(BlockQuotesBuilder builder) {
+    public BlockQuotes(BlockQuotesBuilder builder) {
         this.str = builder.str;
     }
 
@@ -26,13 +26,10 @@ public class BlockQuotes extends Element {
         if (this.getClass() != obj.getClass()) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
         BlockQuotes quote = (BlockQuotes) obj;
-
         return quote.str.equals(this.str);
     }
 
@@ -44,13 +41,19 @@ public class BlockQuotes extends Element {
         String str;
 
         /**
+         * Builder constructor.
+         */
+        public BlockQuotesBuilder() {
+            str = "";
+        }
+
+        /**
          * Set Quote by Element.
          *
          * @param el new quote
          * @return builder
          */
         public BlockQuotesBuilder setQuote(Element el) {
-            this.str = "";
             this.str = ">" + el.str;
             this.str = this.str.replaceAll("\n", "\n>");
             return this;
@@ -63,7 +66,6 @@ public class BlockQuotes extends Element {
          * @return builder
          */
         public BlockQuotesBuilder setQuote(String str) {
-            this.str = "";
             this.str = ">" + str;
             this.str = this.str.replaceAll("\n", "\n>");
             return this;

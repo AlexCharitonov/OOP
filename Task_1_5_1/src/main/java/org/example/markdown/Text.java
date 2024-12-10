@@ -8,7 +8,7 @@ public class Text extends Element {
     /**
      * Simple constructor.
      */
-    Text() {
+    public Text() {
         str = "";
     }
 
@@ -18,7 +18,7 @@ public class Text extends Element {
      *
      * @param textBuilder builder
      */
-    Text(TextBuilder textBuilder) {
+    public Text(TextBuilder textBuilder) {
         this.str = textBuilder.str;
     }
 
@@ -52,7 +52,7 @@ public class Text extends Element {
         /**
          * Builder constructor.
          */
-        TextBuilder() {
+        public TextBuilder() {
             str = "";
         }
 

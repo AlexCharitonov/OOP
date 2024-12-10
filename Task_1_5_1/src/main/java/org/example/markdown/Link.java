@@ -10,7 +10,7 @@ public class Link extends Element {
      *
      * @param builder builder
      */
-    Link(LinkBuilder builder) {
+    public Link(LinkBuilder builder) {
         str = builder.str;
     }
 
@@ -44,7 +44,7 @@ public class Link extends Element {
         /**
          * Builder constructor.
          */
-        LinkBuilder() {
+        public LinkBuilder() {
             str = "";
         }
 
