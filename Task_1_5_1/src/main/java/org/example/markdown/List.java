@@ -18,6 +18,7 @@ public class List extends Element {
 
     /**
      * Constructor by builder.
+     *
      * @param builder builder
      */
     public List(ListBuilder builder) {
@@ -28,6 +29,7 @@ public class List extends Element {
 
     /**
      * Make string.
+     *
      * @return string
      */
     @Override
@@ -41,6 +43,7 @@ public class List extends Element {
 
     /**
      * Compare objects.
+     *
      * @param obj object to compare
      * @return is equal
      */
@@ -76,6 +79,7 @@ public class List extends Element {
 
         /**
          * Constructor of builder.
+         *
          * @param point char to be point of list
          */
         ListBuilder(char point) {
@@ -88,6 +92,7 @@ public class List extends Element {
 
         /**
          * Add Node by Element.
+         *
          * @param el node of list
          * @return builder
          */
@@ -102,6 +107,7 @@ public class List extends Element {
 
         /**
          * Add node by String.
+         *
          * @param el node of List
          * @return builder
          */
@@ -117,6 +123,7 @@ public class List extends Element {
 
         /**
          * Build builder.
+         *
          * @return built List
          */
         public List build() {
