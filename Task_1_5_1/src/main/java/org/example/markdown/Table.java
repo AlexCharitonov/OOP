@@ -184,21 +184,21 @@ public class Table extends Element {
                 }
                 StringBuilder sb = new StringBuilder(limitToCell);
                 switch (aligns[i]) {
-                    case LEFT_ALIGN:
+                    case ALIGN_LEFT:
                         sb.append(strs[i]);
                         for (int j = 0; j < (limitToCell - strs[i].length()); j++) {
                             sb.append(' ');
                         }
                         table[cntRows][i] = sb.toString();
                         break;
-                    case RIGHT_ALIGN:
+                    case ALIGN_RIGHT:
                         for (int j = 0; j < (limitToCell - strs[i].length()); j++) {
                             sb.append(' ');
                         }
                         sb.append(strs[i]);
                         table[cntRows][i] = sb.toString();
                         break;
-                    case CENTER_ALIGN:
+                    case ALIGN_CENTER:
                         int leftSpace;
                         int rightSpace;
                         if ((limitToCell - strs[i].length()) % 2 == 1) {
@@ -261,21 +261,21 @@ public class Table extends Element {
                 }
                 StringBuilder sb = new StringBuilder(limitToCell);
                 switch (aligns[i]) {
-                    case LEFT_ALIGN:
+                    case ALIGN_LEFT:
                         sb.append(elements[i].str);
                         for (int j = 0; j < (limitToCell - elements[i].str.length()); j++) {
                             sb.append(' ');
                         }
                         table[cntRows][i] = sb.toString();
                         break;
-                    case RIGHT_ALIGN:
+                    case ALIGN_RIGHT:
                         for (int j = 0; j < (limitToCell - elements[i].str.length()); j++) {
                             sb.append(' ');
                         }
                         sb.append(elements[i].str);
                         table[cntRows][i] = sb.toString();
                         break;
-                    case CENTER_ALIGN:
+                    case ALIGN_CENTER:
                         int leftSpace;
                         int rightSpace;
                         if ((limitToCell - elements[i].str.length()) % 2 == 1) {
@@ -316,8 +316,8 @@ public class Table extends Element {
      * Enum alignments.
      */
     public enum Align {
-        LEFT_ALIGN,
-        RIGHT_ALIGN,
-        CENTER_ALIGN
+        ALIGN_LEFT,
+        ALIGN_RIGHT,
+        ALIGN_CENTER
     }
 }

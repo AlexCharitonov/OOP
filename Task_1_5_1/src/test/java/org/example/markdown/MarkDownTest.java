@@ -98,8 +98,8 @@ public class MarkDownTest {
     @Test
     void tableTest() {
         Table.TableBuilder builder = new Table.TableBuilder();
-        builder.withAlignments(Table.Align.RIGHT_ALIGN,
-                        Table.Align.CENTER_ALIGN, Table.Align.LEFT_ALIGN)
+        builder.withAlignments(Table.Align.ALIGN_RIGHT,
+                        Table.Align.ALIGN_CENTER, Table.Align.ALIGN_LEFT)
                 .setMaxRows(5)
                 .withRowLimit(15)
                 .addRow("Index", "Index x2", "Index * Index");
@@ -111,8 +111,8 @@ public class MarkDownTest {
             );
         }
         Table.TableBuilder builder1 = new Table.TableBuilder();
-        builder1.withAlignments(Table.Align.RIGHT_ALIGN,
-                        Table.Align.CENTER_ALIGN, Table.Align.LEFT_ALIGN)
+        builder1.withAlignments(Table.Align.ALIGN_RIGHT,
+                        Table.Align.ALIGN_CENTER, Table.Align.ALIGN_LEFT)
                 .setMaxRows(5)
                 .withRowLimit(15)
                 .addRow("Index", "Index x2", "Index * Index");
