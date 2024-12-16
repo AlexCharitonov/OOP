@@ -3,7 +3,6 @@ package org.example.markdown;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import markdown.*;
 import org.junit.jupiter.api.Test;
 
 public class MarkDownTest {

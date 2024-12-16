@@ -1,4 +1,4 @@
-package markdown;
+package org.example.markdown;
 
 import java.util.Arrays;
 
