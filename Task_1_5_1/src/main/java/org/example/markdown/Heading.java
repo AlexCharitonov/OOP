@@ -21,7 +21,6 @@ public class Heading extends Element {
         str = builder.str;
     }
 
-
     /**
      * Compare objects.
      *
