@@ -1,11 +1,9 @@
-package org.example.markdown;
-
-import java.io.Serializable;
+package markdown;
 
 /**
  * Parent class.
  */
-public class Element implements Serializable {
+public abstract class Element {
     protected String str;
 
     /**

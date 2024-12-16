@@ -1,8 +1,9 @@
 package org.example.markdown;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import markdown.*;
 import org.junit.jupiter.api.Test;
 
 public class MarkDownTest {
@@ -13,6 +14,8 @@ public class MarkDownTest {
         builder = builder.addNode(true, "Wake up");
         builder.addNode(true, "Visit U");
         builder = builder.addNode(false, "do cleaning");
+        String str = "- [x] Wake up\n- [x] Visit U\n- [ ] do cleaning\n";
+        assertEquals(str, builder.build().toString());
         TaskList.TaskListBuilder builder2 = new TaskList.TaskListBuilder();
         builder2 = builder2.addNode(true, new Text.TextBuilder().setText("Wake up").build());
         builder2.addNode(true, new Text.TextBuilder().setText("Visit U").build());
@@ -25,6 +28,8 @@ public class MarkDownTest {
         CodeBlocks.CodeBlocksBuilder builder = new CodeBlocks.CodeBlocksBuilder();
         builder = builder.addString(new Text.TextBuilder()
                 .setText("print(\"Test_1_5_1\");").build());
+        String str = "```\nprint(\"Test_1_5_1\");\n```\n";
+        assertEquals(str, builder.build().toString());
         CodeBlocks.CodeBlocksBuilder builder1
                 = new CodeBlocks.CodeBlocksBuilder().addString("print(\"Test_1_5_1\");");
         assertTrue(builder1.build().equals(builder.build()));
@@ -34,6 +39,8 @@ public class MarkDownTest {
     void headingTest() {
         Heading.HeadingBuilder builder = new Heading.HeadingBuilder();
         builder.setHeader("header", 2);
+        String str = "## header";
+        assertEquals(str, builder.build().toString());
         Heading.HeadingBuilder builder1 = new Heading.HeadingBuilder();
         builder1.setHeader(new Text.TextBuilder()
                 .setText("header").build(), 2);
@@ -45,6 +52,8 @@ public class MarkDownTest {
         Image.ImageBuilder builder = new Image.ImageBuilder();
         builder.setText("image");
         builder.setLink("https://cdn.akamai.steamstatic.com/apps/dota2/images/crownfall/act4_ascension_night/russian/112.webp");
+        String str = "![image](https://cdn.akamai.steamstatic.com/apps/dota2/images/crownfall/act4_ascension_night/russian/112.webp)";
+        assertEquals(str, builder.build().toString());
         Image.ImageBuilder builder1 = new Image.ImageBuilder();
         builder1.setText(new Text.TextBuilder().setText("image").build());
         builder1.setLink("https://cdn.akamai.steamstatic.com/apps/dota2/images/crownfall/act4_ascension_night/russian/112.webp");
@@ -55,6 +64,8 @@ public class MarkDownTest {
     void linkTest() {
         Link.LinkBuilder builder = new Link.LinkBuilder();
         builder.setLink("https://hades.fandom.com/ru/wiki/%D0%A1%D1%83%D0%B2%D0%B5%D0%BD%D0%B8%D1%80%D1%8B");
+        String str = "<https://hades.fandom.com/ru/wiki/%D0%A1%D1%83%D0%B2%D0%B5%D0%BD%D0%B8%D1%80%D1%8B>";
+        assertEquals(str, builder.build().toString());
         Link.LinkBuilder builder1 = new Link.LinkBuilder();
         builder1.setLink(new Text.TextBuilder().setText("https://hades.fandom.com/ru/wiki/%D0%A1%D1%83%D0%B2%D0%B5%D0%BD%D0%B8%D1%80%D1%8B").build());
         assertTrue(builder.build().equals(builder1.build()));
@@ -66,6 +77,8 @@ public class MarkDownTest {
         builder.setQuote("People who thinks they know everything are a great \n"
                 + "annoyance to those of us who do\n"
                 + "\t\t\tIsaak Asimov");
+        String str = ">People who thinks they know everything are a great \n>annoyance to those of us who do\n>\t\t\tIsaak Asimov";
+        assertEquals(str, builder.build().toString());
         BlockQuotes.BlockQuotesBuilder builder1 = new BlockQuotes.BlockQuotesBuilder();
         builder1.setQuote(new Text.TextBuilder()
                 .setText("People who thinks they know everything are a great \n"
@@ -82,6 +95,8 @@ public class MarkDownTest {
                 .setCode("example").setParagraph()
                 .setCursive("of").setLineBreak()
                 .setStrike("text");
+        String str = "Just<br>**simple**<br>`example`\n\n*of*<br>~~text~~";
+        assertEquals(str, builder.build().toString());
         Text.TextBuilder builder1 = new Text.TextBuilder();
         builder1.setText(new Text.TextBuilder().setText("Just").build())
                 .setLineBreak()
@@ -110,6 +125,8 @@ public class MarkDownTest {
                     Integer.toString(i * i)
             );
         }
+        String str = "|           Index |     Index x2    | Index * Index   | \n|               0 |        0        | 0               | \n|               1 |        2        | 1               | \n|               2 |        4        | 4               | \n";
+        assertEquals(str, builder.build().toString());
         Table.TableBuilder builder1 = new Table.TableBuilder();
         builder1.withAlignments(Table.Align.ALIGN_RIGHT,
                         Table.Align.ALIGN_CENTER, Table.Align.ALIGN_LEFT)

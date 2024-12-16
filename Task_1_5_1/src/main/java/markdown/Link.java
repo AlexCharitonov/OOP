@@ -1,4 +1,4 @@
-package org.example.markdown;
+package markdown;
 
 /**
  * Link class.

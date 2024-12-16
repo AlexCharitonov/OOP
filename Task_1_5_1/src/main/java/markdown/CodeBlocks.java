@@ -1,4 +1,4 @@
-package org.example.markdown;
+package markdown;
 
 import java.util.Arrays;
 
@@ -20,16 +20,6 @@ public class CodeBlocks extends Element {
         }
 
         str += "```\n";
-    }
-
-    /**
-     * Make string.
-     *
-     * @return string
-     */
-    @Override
-    public String toString() {
-        return this.str;
     }
 
     /**
